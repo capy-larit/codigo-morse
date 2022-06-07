@@ -1,5 +1,11 @@
-from codigo_morse import __version__
+from codigo_morse import codificar
 
 
-def test_version():
-    assert __version__ == '0.1.0'
+def test_codificar_ola_deve_retornar_codigo_correto():
+    esperado = '--- .-.. .-'
+    assert codificar('ola') == esperado
+
+
+def test_codificar_frase_com_espaco():
+    esperado = '--- .-.. .- / --- .-.. .- / --- .-.. .-'
+    assert codificar('ola ola ola') == esperado
