@@ -33,25 +33,49 @@ codificacao = {
 }
 
 
-while True:
-
+def cabecalho() -> None:
     print('*=' * 20)
     print(f"{'Deseja codificar ou decodificar?' : ^40}")
     print('*=' * 20)
 
-    opcao = input('\nMENU: \n1 - Codificar\n2 - Decodificar\nSua opção: ')
 
-    if opcao == '1':
+def codificar(frase: str) -> str:
+    """
+    Codifica a frase em código morse.
 
-        frase = input('\nDigite o que deseja codificar: ').lower()
+    Args:
+      - frase (str): frase que será codificada.
 
-        print('\nCodificando para Código Morse...\n')
-        time.sleep(2)
-        print('Sua resposta: ')
-        for i in frase:
-            print(f'{codificacao[i]}', end="")
-        print('\n')
+    Returns:
+      - str: frase codificada em morse.
+    """
 
-    time.sleep(3)
+    frase_codificada = ''
+    for caractere in frase:
+        frase_codificada += f'{codificacao[caractere]} '
+    return frase_codificada.strip()
 
-    # def decodificacao(*args) -> Dict[str, str]
+
+def main():
+    while True:
+
+        cabecalho()
+
+        opcao = input('\nMENU: \n1 - Codificar\n2 - Decodificar\nSua opção: ')
+
+        if opcao == '1':
+
+            frase = input('\nDigite o que deseja codificar: ').lower()
+
+            print('\nCodificando para Código Morse...\n')
+            time.sleep(2)
+            print('Sua resposta: ')
+
+            print(codificar(frase))
+
+
+        time.sleep(3)
+
+
+if __name__ == '__main__':
+    main()
