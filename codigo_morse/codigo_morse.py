@@ -1,6 +1,5 @@
 """Código Morse"""
 
-from typing import Dict
 import time
 
 codificacao = {
@@ -32,6 +31,8 @@ codificacao = {
     ' ' : '/',
 }
 
+decodificacao = dict(map(reversed, codificacao.items()))
+
 
 def cabecalho() -> None:
     print('*=' * 20)
@@ -56,6 +57,23 @@ def codificar(frase: str) -> str:
     return frase_codificada.strip()
 
 
+def decodificar(frase: str) -> str:
+    """
+    Decodifica a frase para português.
+
+    Args:
+      - frase (str): frase que será decodificada.
+
+    Returns:
+      - str: frase decodificada em português.
+    """
+
+    frase_decodificada = ''
+    for caractere in frase.split():
+        frase_decodificada += f'{decodificacao[caractere]}'
+    return frase_decodificada
+
+
 def main():
     while True:
 
@@ -73,6 +91,15 @@ def main():
 
             print(codificar(frase))
 
+        if opcao == '2':
+
+            frase = input('\nDigite o que deseja decodificar: ').lower()
+
+            print('\nDecodificando para português...\n')
+            time.sleep(2)
+            print('Sua resposta: ')
+
+            print(decodificar(frase))
 
         time.sleep(3)
 

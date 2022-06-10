@@ -1,1 +1,1 @@
-from .codigo_morse import codificar
+from .codigo_morse import codificar, decodificar
