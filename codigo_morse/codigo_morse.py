@@ -41,6 +41,34 @@ def cabecalho() -> None:
     print('*=' * 20)
 
 
+def tradutor(frase: str, cifrar: bool, dicionario: dict) -> str:
+    """
+    Codifica e decodifica em código morse.
+
+    Args:
+      - frase (str): frase que será codificada ou decodificada.
+      - cifrar (bool): flag para definir se será codificada ou decodificada.
+      - dicionario (dict): dicionário que será usado na tradução.
+
+    Returns:
+      - str: frase codificada ou decodificada.
+    """
+
+    frase_final = ''
+    try:
+        frase = frase if cifrar else frase.split()
+        for caractere in frase:
+            frase_final += f'{dicionario[caractere]}{cifrar * " "}'
+        return frase_final.strip()
+    except KeyError:
+        print(
+            f'A frase {frase} é inválida, informe o '
+            f'{"texto em português" if cifrar else "código morse"}.'
+        )
+
+    return frase_final
+
+
 def codificar(frase: str) -> str:
     """
     Codifica a frase em código morse.
