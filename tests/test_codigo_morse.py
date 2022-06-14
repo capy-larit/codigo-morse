@@ -18,6 +18,4 @@ def test_decodificar_ola():
 
 def test_decodificar_frase_com_espaco():
     esperado = 'ola ola ola'
-    assert (
-        decodificar('--- .-.. .- / --- .-.. .- / --- .-.. .-') == esperado
-    )
+    assert decodificar('--- .-.. .- / --- .-.. .- / --- .-.. .-') == esperado
