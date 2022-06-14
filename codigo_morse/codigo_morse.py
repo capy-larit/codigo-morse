@@ -80,10 +80,7 @@ def codificar(frase: str) -> str:
       - str: frase codificada em morse.
     """
 
-    frase_codificada = ''
-    for caractere in frase:
-        frase_codificada += f'{codificacao[caractere]} '
-    return frase_codificada.strip()
+    return tradutor(frase, True, codificacao)
 
 
 def decodificar(frase: str) -> str:
@@ -97,10 +94,7 @@ def decodificar(frase: str) -> str:
       - str: frase decodificada em português.
     """
 
-    frase_decodificada = ''
-    for caractere in frase.split():
-        frase_decodificada += f'{decodificacao[caractere]}'
-    return frase_decodificada
+    return tradutor(frase, False, decodificacao)
 
 
 def main():
